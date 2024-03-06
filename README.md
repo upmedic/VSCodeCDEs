@@ -1,5 +1,5 @@
 # CDEs
-This extension is a support tooling for developing RSNA Clinical Data Elements (CDEs).
+This extension is a support tooling for developing RSNA Common Data Elements (CDEs).
 
 # CDE development pipeline
 This extension is a a part of the CDE development pipeline hosted at www.upmedic.io/app/templates/cdes (available for free).
