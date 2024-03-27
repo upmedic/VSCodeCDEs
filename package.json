@@ -2,32 +2,39 @@
   "name": "cdes",
   "displayName": "cdes",
   "description": "CDEs authoring extension",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "publisher": "upmedic",
   "engines": {
     "vscode": "^1.86.0"
   },
+  "repository": "https://github.com/upmedic/VSCodeCDEs",
   "categories": [
     "Other"
   ],
   "activationEvents": ["onStartupFinished"],
   "browser": "./dist/web/extension.js",
+  "main": "./dist/web/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "cdes.search",
         "title": "CDEs search client"
       }
+    ],
+    "snippets": [
+      {
+        "language": "json",
+        "path": "./cdeset.code-snippets"
+      }
     ]
   },
   "scripts": {
-    "test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js",
-    "pretest": "yarn run compile-web",
     "vscode:prepublish": "yarn run package-web",
     "compile-web": "webpack",
     "watch-web": "webpack --watch",
     "package-web": "webpack --mode production --devtool hidden-source-map",
+    "package": "webpack --mode production --devtool hidden-source-map",
     "lint": "eslint src --ext ts",
     "run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
   },
@@ -35,17 +42,20 @@
     "@types/vscode": "^1.86.0",
     "@types/mocha": "^10.0.6",
     "@types/assert": "^1.5.10",
-    "eslint": "^8.56.0",
+    "mocha": "^10.2.0",
+    "@vscode/test-web": "^0.0.50",
+    "@types/webpack-env": "^1.18.4",
+    "assert": "^2.1.0",
+    "process": "^0.11.10",
+    "@types/node": "18.x",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
-    "mocha": "^10.2.0",
+    "eslint": "^8.56.0",
     "typescript": "^5.3.3",
-    "@vscode/test-web": "^0.0.50",
     "ts-loader": "^9.5.1",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
-    "@types/webpack-env": "^1.18.4",
-    "assert": "^2.1.0",
-    "process": "^0.11.10"
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8"
   }
 }
